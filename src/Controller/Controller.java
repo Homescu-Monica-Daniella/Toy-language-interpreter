@@ -70,14 +70,14 @@ public class Controller {
     }
 
     public void oneStepForAllPrograms(List<ProgramState> prgList) throws InterruptedException {
-        //prgList.forEach(prg-> {
-        //    try {
-        //        this.repo.logProgramStateExecution(prg);
-        //        display(prg);
-        //  } catch (ADTException | IOException e) {
-        //        System.out.println(e.getMessage());
-        //    }
-        //});
+        prgList.forEach(prg-> {
+            try {
+                this.repo.logProgramStateExecution(prg);
+                display(prg);
+          } catch (ADTException | IOException e) {
+                System.out.println(e.getMessage());
+            }
+        });
         List<Callable<ProgramState>> callList = prgList.stream()
                 .map((ProgramState p)->(Callable<ProgramState>)(p::oneStep))
                 .collect(Collectors.toList());
