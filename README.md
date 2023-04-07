@@ -11,7 +11,7 @@ A `Program State` consists of the following main structures:
 
 The `Garbage Collector` removes addresses which are not reffered from Table of Symbols and from other Heap Table entries. 
 
-Execution is done only if the program passes the `typechecker`.
+Execution is done only if the program passes the `Typechecker`.
 
 A `Type` can be Integer, String, Boolean or Reference.
 
