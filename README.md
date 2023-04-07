@@ -1,52 +1,22 @@
-# Toy-Language-Interpreter-in-Java
+# Toy-Language-Interpreter
 
-Interpreter for a toy language using the Model-View-Controller architectural pattern and the Object-Oriented concepts.
+Interpreter for a toy language using the Model-View-Controller architectural pattern and the Object-Oriented concepts. 
 
-Each program state uses an execution stack to store instructions, a symbol table to store variables, an output list to store printed messages, a file table to manage opened files and a heap table to manage heap memory.
+A `Program State` consists of the following main structures:
+- `Execution Stack` (ADT Stack): keeps track of statements to execute the current program
+- `Table of Symbols` (ADT Dictionary): keeps the variables values
+- `Output` (ADT List): keeps all the messages printed
+- `File Table` (ADT Dictionary): manages the files opened
+- `Heap Table` (ADT Heap): manages the heap memory
 
+The `Garbage Collector` removes addresses which are not reffered from Table of Symbols and from other Heap Table entries. 
 
-- Program State
-- Interface List
-  - MyList
-- Interface Stack
-  - Stack
-- Interface Dictionary
-  - Dictionary
-- Interface Heap
-  - Heap
+Execution is done only if the program passes the `typechecker`.
 
-- Interface Type
-  - Integer Type
-  - String Type
-  - Boolean Type
-  - Reference Type
+A `Type` can be Integer, String, Boolean or Reference.
 
-- Interface Value
-  - Integer Value
-  - String Value
-  - Boolean Value
-  - Reference Value
+A `Value` can be Integer, String, Boolean or Reference.
 
-- Interface Statement
-  - Assignment Statement
-  - Close Read File Statement
-  - Compound Statement
-  - Conditional Statement
-  - Fork Statement
-  - Heap Allocation Statement
-  - Heap Writing Statement
-  - No Operation Statement
-  - Open Read File Statement
-  - Print Statement
-  - Read File Statement
-  - Variable Declaration Statement
-  - While Statement
-  
-- Interface Expression
-  - Arithmetic Expression
-  - Heap Reading Expression
-  - Interface Expression
-  - Logical Expression
-  - Relational Expression
-  - Value Expression
-  - Variable Expression
+A `Statement` can be VariableDeclaration, Assignment, Compound, Conditional, While, Print, NoOperation, OpenReadFile, ReadFile, CloseReadFile, HeapAllocation, HeapWriting or Fork.
+
+An `Expression` can be Value, Variable, Arithmetic, Logical, Relational or HeapReading.
